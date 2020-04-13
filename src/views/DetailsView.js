@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 import Navigation from "components/molecules/Navigation/Navigation";
-import Card from "components/molecules/Card";
 import Footer from "components/molecules/Footer/Footer";
-import initialState from "data";
 
-class ForgotenView extends Component {
+
+class DetailsView extends Component {
   state = {
-    forgoten: initialState.forgoten,
   };
 
   render() {
-    const { forgoten } = this.state;
+
     return (
       <>
         <Navigation />
-        {forgoten.map((item) => (
+        detailsView
+        {/* {castles.map((item) => (
           <Card key={item.name} {...item} />
-        ))}
+        ))} */}
 
         <Footer />
       </>
@@ -24,5 +23,4 @@ class ForgotenView extends Component {
   }
 }
 
-export default ForgotenView;
-
+export default DetailsView;
