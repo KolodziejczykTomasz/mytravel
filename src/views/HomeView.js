@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "components/molecules/Navigation/Navigation";
-import MiniCard from "components/molecules/MiniCard";
+import ShortCard from "components/molecules/ShortCard";
 import Footer from "components/molecules/Footer/Footer";
 import initialState from "data";
 
@@ -16,13 +16,63 @@ class HomeView extends Component {
       <>
         <Navigation />
         Zamki
-        {castles.map((item) => (
-          <MiniCard key={item.name} {...item} />
-        ))}
+        {castles.map(
+          ({
+            id,
+            name,
+            url,
+            cordinatesN,
+            cordinatesE,
+            woj,
+            powiat,
+            gmina,
+            miejscowosc,
+            description,
+          }) => (
+            <ShortCard
+              id={id}
+              url={url}
+              key={name}
+              name={name}
+              cordinatesN={cordinatesN}
+              cordinatesE={cordinatesE}
+              woj={woj}
+              powiat={powiat}
+              gmina={gmina}
+              miejscowosc={miejscowosc}
+              description={description}
+            />
+          )
+        )}
         Zapomniane
-        {forgoten.map((item) => (
-          <MiniCard key={item.name} {...item} />
-        ))}
+        {forgoten.map(
+          ({
+            id,
+            url,
+            name,
+            cordinatesN,
+            cordinatesE,
+            woj,
+            powiat,
+            gmina,
+            miejscowosc,
+            description,
+          }) => (
+            <ShortCard
+              id={id}
+              url={url}
+              key={name}
+              name={name}
+              cordinatesN={cordinatesN}
+              cordinatesE={cordinatesE}
+              woj={woj}
+              powiat={powiat}
+              gmina={gmina}
+              miejscowosc={miejscowosc}
+              description={description}
+            />
+          )
+        )}
         <Footer />
       </>
     );

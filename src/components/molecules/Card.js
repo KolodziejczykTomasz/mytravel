@@ -1,33 +1,33 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Card extends Component {
-  state = {};
-  render() {
-    const {      
-      url,
-      gallery,
-      name,
-      cordinatesN,
-      cordinatesE,
-      description,
-      woj,
-      powiat,
-      gmina,
-      miejscowosc,
-    } = this.props;
-    return (
-      <>
+
+
+const Card = ({
+  url,
+  photo1,
+  photo2,
+  photo3,
+  name,
+  cordinatesN,
+  cordinatesE,
+  description,
+  woj,
+  powiat,
+  gmina,
+  miejscowosc,
+  cardType,
+}) => {
+  return (
+    <>
+      <div cardType={cardType}>
+        <button class="delete is-large" href={`/${cardType}`}></button>
         <ul>
           <li>
             <img src={url} alt={name} />
           </li>
-          {gallery.map((item) => (
-            <div>
-              <img src={item.url1} alt={name}/>
-              <img src={item.url2} alt={name}/>
-              <img src={item.url3} alt={name}/>
-            </div>
-          ))}
+          {photo1}
+          {photo2}
+          {photo3}
           <li>{name}</li>
           Położenie:
           <li>N: {cordinatesN}</li>
@@ -39,9 +39,9 @@ class Card extends Component {
           Opis:
           <li> {description}</li>
         </ul>
-      </>
-    );
-  }
-}
+      </div>
+    </>
+  );
+};
 
 export default Card;
