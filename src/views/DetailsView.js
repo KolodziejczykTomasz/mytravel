@@ -16,10 +16,10 @@ class DetailsView extends Component {
   componentDidMount() {
     const { match } = this.props;
     switch (match.path) {
-      case routes.twitter:
+      case routes.castle:
         this.setState({ pageType: "castles" });
         break;
-      case routes.note:
+      case routes.forgoten:
         this.setState({ pageType: "forgotens" });
         break;
       default:
@@ -32,8 +32,7 @@ class DetailsView extends Component {
       id,
       url1,
       url2,
-      url3,
-      pageType,
+      url3,    
       name,
       cordinatesN,
       cordinatesE,
@@ -43,6 +42,8 @@ class DetailsView extends Component {
       miejscowosc,
       description,
     } = this.props;
+
+    const {pageType} = this.state;
 
     return (
       <>

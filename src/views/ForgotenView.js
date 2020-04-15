@@ -3,6 +3,16 @@ import Navigation from "components/molecules/Navigation/Navigation";
 import ShortCard from "components/molecules/ShortCard";
 import Footer from "components/molecules/Footer/Footer";
 import initialState from "data";
+import styled from "styled-components";
+
+const ListShortCard = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 98vw;
+  margin: 15px auto;
+`;
+
+
 
 class ForgotenView extends Component {
   state = {
@@ -15,7 +25,7 @@ class ForgotenView extends Component {
     return (
       <>
         <Navigation />
-        <div>
+        <ListShortCard pageType="forgotens">
           {forgotens.map(
             ({
               id,
@@ -45,7 +55,7 @@ class ForgotenView extends Component {
               />
             )
           )}
-        </div>
+        </ListShortCard>
 
         <Footer />
       </>

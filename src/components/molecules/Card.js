@@ -1,6 +1,24 @@
 import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-
+const Button = styled.a`
+  display: grid;
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  justify-content: center;
+  align-content: center;
+  color: black;
+  background-color: lightgray;
+  border-radius: 50px;
+  bottom: 220px;
+  right: 40px;
+  :hover {
+    text-decoration-line: none;
+    color: white;
+  }
+`;
 
 const Card = ({
   url,
@@ -15,12 +33,11 @@ const Card = ({
   powiat,
   gmina,
   miejscowosc,
-  cardType,
+  pageType,
 }) => {
   return (
     <>
-      <div cardType={cardType}>
-        <button class="delete is-large" href={`/${cardType}`}></button>
+      <div pageType={pageType}>
         <ul>
           <li>
             <img src={url} alt={name} />
@@ -39,6 +56,9 @@ const Card = ({
           Opis:
           <li> {description}</li>
         </ul>
+        <Button as={Link} to={`/${pageType}`}>
+          Close
+        </Button>
       </div>
     </>
   );
