@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import Navigation from "components/molecules/Navigation/Navigation";
 import ShortCard from "components/molecules/ShortCard";
 import Footer from "components/molecules/Footer/Footer";
-import initialState from "data";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const ListShortCard = styled.div`
   display: grid;
@@ -14,16 +14,8 @@ const ListShortCard = styled.div`
 
 
 
-class ForgotenView extends Component {
-  state = {
-    forgotens: initialState.forgoten,
-  };
-
-  render() {
-    const { forgotens } = this.state;
-   
-    return (
-      <>
+const ForgotenView = ({forgotens})=> (
+<>
         <Navigation />
         <ListShortCard pageType="forgotens">
           {forgotens.map(
@@ -59,9 +51,15 @@ class ForgotenView extends Component {
 
         <Footer />
       </>
-    );
-  }
-}
 
-export default ForgotenView;
+);
+
+const mapStateToProps = (state) => {
+  const { forgotens } = state;
+  return { forgotens };
+};
+
+export default connect(mapStateToProps)(ForgotenView);
+
+
 

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 
+import { connect } from "react-redux";
+import { removeItem as removeItemAction } from "actions";
+import withContext from "hoc/withContext";
+
 const WrapperStyled = styled.div`
   display: grid;
   grid-template-columns: 1 fr;
@@ -50,6 +54,7 @@ class ShortCard extends Component {
       gmina,
       miejscowosc,
       cardType,
+      removeItem,
     } = this.props;
     const { redirect } = this.state;
 
@@ -59,6 +64,10 @@ class ShortCard extends Component {
 
     return (
       <WrapperStyled>
+        <button
+          class="delete is-medium"
+          onClick={() => removeItem(cardType, id)}
+        ></button>
         <ul>
           <NameStyled>{name}</NameStyled>
           <li>
@@ -78,4 +87,11 @@ class ShortCard extends Component {
   }
 }
 
-export default ShortCard;
+
+const mapDispatchToProps = (dispatch) => ({
+  removeItem: (itemType, id) => dispatch(removeItemAction(itemType, id)),
+});
+
+export default connect(null, mapDispatchToProps)(withContext(ShortCard));
+
+

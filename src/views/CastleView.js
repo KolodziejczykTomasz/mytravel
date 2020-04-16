@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import Navigation from "components/molecules/Navigation/Navigation";
 import ShortCard from "components/molecules/ShortCard";
 import Footer from "components/molecules/Footer/Footer";
-import initialState from "data";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
 const ListShortCard = styled.div`
@@ -12,53 +12,48 @@ const ListShortCard = styled.div`
   margin: 15px auto;
 `;
 
+const CastleView = ({ castles }) => (
+  <>
+    <Navigation />
+    <ListShortCard pageType="castles">
+      {castles.map(
+        ({
+          id,
+          name,
+          url,
+          cordinatesN,
+          cordinatesE,
+          woj,
+          powiat,
+          gmina,
+          miejscowosc,
+          description,
+        }) => (
+          <ShortCard
+            id={id}
+            url={url}
+            key={name}
+            name={name}
+            cordinatesN={cordinatesN}
+            cordinatesE={cordinatesE}
+            woj={woj}
+            powiat={powiat}
+            gmina={gmina}
+            miejscowosc={miejscowosc}
+            description={description}
+            cardType="castles"
+          />
+        )
+      )}
+    </ListShortCard>
 
-class CastleView extends Component {
-  state = {
-    castles: initialState.castles,
-  };
+    <Footer />
+  </>
+);
 
-  render() {
-    const { castles } = this.state;
-    return (
-      <>
-        <Navigation />
-        <ListShortCard pageType="castles">
-          {castles.map(
-            ({
-              id,
-              name,
-              url,
-              cordinatesN,
-              cordinatesE,
-              woj,
-              powiat,
-              gmina,
-              miejscowosc,
-              description,
-            }) => (
-              <ShortCard
-                id={id}
-                url={url}
-                key={name}
-                name={name}
-                cordinatesN={cordinatesN}
-                cordinatesE={cordinatesE}
-                woj={woj}
-                powiat={powiat}
-                gmina={gmina}
-                miejscowosc={miejscowosc}
-                description={description}
-                cardType="castles"
-              />
-            )
-          )}
-        </ListShortCard>
+const mapStateToProps = (state) => {
+  const { castles } = state;
+  return { castles };
+};
 
-        <Footer />
-      </>
-    );
-  }
-}
-
-export default CastleView;
+export default connect(mapStateToProps)(CastleView);

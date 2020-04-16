@@ -38,6 +38,7 @@ const Card = ({
   return (
     <>
       <div pageType={pageType}>
+        
         <ul>
           <li>
             <img src={url} alt={name} />
