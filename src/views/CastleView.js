@@ -1,9 +1,10 @@
 import React from "react";
 import Navigation from "components/molecules/Navigation/Navigation";
 import ShortCard from "components/molecules/ShortCard";
-import Footer from "components/molecules/Footer/Footer";
+import Footer from "components/organisms/Footer/Footer";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import ViewTemplates from "../templates/ViewTemplates";
 
 const ListShortCard = styled.div`
   display: grid;
@@ -15,6 +16,7 @@ const ListShortCard = styled.div`
 const CastleView = ({ castles }) => (
   <>
     <Navigation />
+    <ViewTemplates>
     <ListShortCard pageType="castles">
       {castles.map(
         ({
@@ -46,7 +48,7 @@ const CastleView = ({ castles }) => (
         )
       )}
     </ListShortCard>
-
+</ViewTemplates>
     <Footer />
   </>
 );

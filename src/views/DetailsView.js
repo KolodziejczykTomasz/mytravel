@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { routes } from "routes";
 import Navigation from "components/molecules/Navigation/Navigation";
 import Card from "components/molecules/Card";
-import Footer from "components/molecules/Footer/Footer";
+import Footer from "components/organisms/Footer/Footer";
 import initialState from "data";
 
 

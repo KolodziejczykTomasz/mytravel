@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigation from "components/molecules/Navigation/Navigation";
 import ShortCard from "components/molecules/ShortCard";
-import Footer from "components/molecules/Footer/Footer";
+import Footer from "components/organisms/Footer/Footer";
 import initialState from "data";
 import styled from "styled-components";
 
