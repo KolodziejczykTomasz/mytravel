@@ -4,54 +4,53 @@ import ShortCard from "components/molecules/ShortCard";
 import Footer from "components/organisms/Footer/Footer";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import ViewTemplates from "../templates/ViewTemplates";
 
 const ListShortCard = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 98vw;
-  margin: 15px auto;
+  margin: 60px auto 0 auto;
 `;
 
-
-
-const ForgotenView = ({forgotens})=> (
-<>
-        <Navigation />
-        <ListShortCard pageType="forgotens">
-          {forgotens.map(
-            ({
-              id,
-              url,
-              name,
-              cordinatesN,
-              cordinatesE,
-              woj,
-              powiat,
-              gmina,
-              miejscowosc,
-              description,
-            }) => (
-              <ShortCard
-                id={id}
-                url={url}
-                key={name}
-                name={name}
-                cordinatesN={cordinatesN}
-                cordinatesE={cordinatesE}
-                woj={woj}
-                powiat={powiat}
-                gmina={gmina}
-                miejscowosc={miejscowosc}
-                description={description}
-                cardType="forgotens"
-              />
-            )
-          )}
-        </ListShortCard>
-
-        <Footer />
-      </>
-
+const ForgotenView = ({ forgotens }) => (
+  <>
+    <Navigation />
+    <ViewTemplates>
+      <ListShortCard pageType="forgotens">
+        {forgotens.map(
+          ({
+            id,
+            url,
+            name,
+            cordinatesN,
+            cordinatesE,
+            woj,
+            powiat,
+            gmina,
+            miejscowosc,
+            description,
+          }) => (
+            <ShortCard
+              id={id}
+              url={url}
+              key={name}
+              name={name}
+              cordinatesN={cordinatesN}
+              cordinatesE={cordinatesE}
+              woj={woj}
+              powiat={powiat}
+              gmina={gmina}
+              miejscowosc={miejscowosc}
+              description={description}
+              cardType="forgotens"
+            />
+          )
+        )}
+      </ListShortCard>
+    </ViewTemplates>
+    <Footer />
+  </>
 );
 
 const mapStateToProps = (state) => {
@@ -60,6 +59,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(ForgotenView);
-
-
-

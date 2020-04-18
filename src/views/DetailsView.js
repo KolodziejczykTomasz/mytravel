@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { routes } from "routes";
+import { connect } from "react-redux";
 import Navigation from "components/molecules/Navigation/Navigation";
 import Card from "components/molecules/Card";
 import Footer from "components/organisms/Footer/Footer";
-import initialState from "data";
+
 
 
 
 class DetailsView extends Component {
   state = {
-    pageType: "",
-    castles: initialState.castles,
+    pageType: "",    
   };
 
   componentDidMount() {
@@ -23,7 +23,7 @@ class DetailsView extends Component {
         this.setState({ pageType: "forgotens" });
         break;
       default:
-        console.log("Something went wrong with matching paths");
+        console.log("Something went wrong");
     }
   }
 
@@ -70,4 +70,10 @@ class DetailsView extends Component {
   }
 }
 
-export default DetailsView;
+
+const mapStateToProps = (state) => {
+  const { castles, forgotens } = state;
+  return { castles, forgotens };
+};
+
+export default connect(mapStateToProps)(DetailsView);

@@ -5,16 +5,12 @@ import "./Navigation.css";
 const Navigation = () => {
   return (
     <nav
-      className="navbar is-link"
+      className="navbar is-fixed-top"
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="navbar-brand">        
-          <img
-            src="https://bulma.io/images/bulma-logo.png"
-           
-            alt="Brand logo"
-          />
+      <div className="navbar-brand">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Brand logo" />
 
         <Link
           role="button"
@@ -40,7 +36,7 @@ const Navigation = () => {
           <NavLink to="/forgotens" className="navbar-link">
             Zapomniane
           </NavLink>
-        </div>       
+        </div>
       </div>
     </nav>
   );

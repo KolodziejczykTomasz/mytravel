@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import Navigation from "components/molecules/Navigation/Navigation";
-import ShortCard from "components/molecules/ShortCard";
+import FrontCard from "components/molecules/FrontCard";
 import Footer from "components/organisms/Footer/Footer";
-import initialState from "data";
+import Hero from 'components/atoms/Hero';
 import styled from "styled-components";
+
+const StyledWrapper = styled.div`
+  border-bottom: 1px solid grey;
+`;
 
 const ListShortCard = styled.div`
   display: grid;
@@ -12,95 +18,78 @@ const ListShortCard = styled.div`
   margin: 15px auto;
 `;
 
-const HeaderListShortCard = styled.div`
-font-weight: 400;
+const HeaderListFrontCard = styled.div`
+  font-weight: 400;
   width: 98vw;
   margin: 30px auto;
   text-align: center;
   text-transform: uppercase;
-  font-size: 1.6rem;
-  border-bottom: 1px solid grey;
+  font-size: 1.8rem;
 `;
 
-class HomeView extends Component {
-  state = {
-    castles: initialState.castles,
-    forgoten: initialState.forgoten,
-  };
+const FooterListFrontCard = styled.div`
+  font-weight: 400;
+  width: 98vw;
+  margin: 30px auto;
+  text-align: center;  
+  font-size: 1.2rem;
+`;
 
-  render() {
-    const { castles, forgoten } = this.state;
-    return (
-      <>
-        <Navigation />
-        <HeaderListShortCard>Zamki</HeaderListShortCard>
-        <ListShortCard pageType="castles">
-          {castles.map(
-            ({
-              id,
-              name,
-              url,
-              cordinatesN,
-              cordinatesE,
-              woj,
-              powiat,
-              gmina,
-              miejscowosc,
-              description,
-            }) => (
-              <ShortCard
-                id={id}
-                url={url}
-                key={name}
-                name={name}
-                cordinatesN={cordinatesN}
-                cordinatesE={cordinatesE}
-                woj={woj}
-                powiat={powiat}
-                gmina={gmina}
-                miejscowosc={miejscowosc}
-                description={description}
-                cardType="castles"
-              />
-            )
-          )}
-        </ListShortCard>
-        <HeaderListShortCard>Zapomniane</HeaderListShortCard>
-        <ListShortCard pageType="forgotens">
-          {forgoten.map(
-            ({
-              id,
-              url,
-              name,
-              cordinatesN,
-              cordinatesE,
-              woj,
-              powiat,
-              gmina,
-              miejscowosc,
-              description,
-            }) => (
-              <ShortCard
-                id={id}
-                url={url}
-                key={name}
-                name={name}
-                cordinatesN={cordinatesN}
-                cordinatesE={cordinatesE}
-                woj={woj}
-                powiat={powiat}
-                gmina={gmina}
-                miejscowosc={miejscowosc}
-                description={description}
-                cardType="forgotens"
-              />
-            )
-          )}
-        </ListShortCard>
-        <Footer />
-      </>
-    );
-  }
-}
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: end;
+  margin: 15px 15px;
+`;
 
-export default HomeView;
+
+const HomeView = ({ castles, forgotens }) => (
+  <>
+    <Navigation />
+    <Hero />
+    <StyledWrapper>
+      <HeaderListFrontCard>Zamki</HeaderListFrontCard>
+      <ListShortCard pageType="castles">
+        {castles.map(({ url, name }) => (
+          <FrontCard url={url} name={name} />
+        ))}
+      </ListShortCard>
+
+      <FooterListFrontCard>
+        <StyledButtonWrapper>
+          <a className="button is-link is-rounded" as={Link} href="/castles">
+            Więcej
+          </a>
+        </StyledButtonWrapper>
+      </FooterListFrontCard>
+    </StyledWrapper>
+    <StyledWrapper>
+      <HeaderListFrontCard>Zapomniane</HeaderListFrontCard>
+      <ListShortCard pageType="forgotens">
+        {forgotens.map(({ url, name }) => (
+          <FrontCard url={url} name={name} />
+        ))}
+      </ListShortCard>
+      <FooterListFrontCard>
+        <StyledButtonWrapper>
+          <a
+            className="button is-link is-rounded"
+            as={Link}
+            href="/forgotens"
+          >
+            Więcej
+          </a>
+        </StyledButtonWrapper>
+      </FooterListFrontCard>
+    </StyledWrapper>
+    <Footer />
+  </>
+);
+
+
+
+const mapStateToProps = (state) => {
+  const { castles, forgotens } = state;
+  return { castles, forgotens };
+};
+
+export default connect(mapStateToProps)(HomeView);

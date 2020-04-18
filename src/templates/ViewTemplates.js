@@ -7,9 +7,30 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: end;
+`;
+
+const StyledButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 70px;
+  height: 70px;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 100px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+`;
+
+
+
 class ViewTemplate extends Component {
   state = {
-    isNewItemBarVisible: true,
+    isNewItemBarVisible: false,
   };
 
   toggleNewItemBar = () => {
@@ -24,18 +45,15 @@ class ViewTemplate extends Component {
 
     return (
       <Wrapper>
-          <div>
-           {children}   
-          </div>
-        
-        <button onClick={this.toggleNewItemBar}>PLUS</button>
+        <div>{children}</div>
+        <StyledButtonWrapper>
+          <StyledButton onClick={this.toggleNewItemBar}>PLUS</StyledButton>
+        </StyledButtonWrapper>
 
         <NewItemBar
           handleClose={this.toggleNewItemBar}
           isVisible={isNewItemBarVisible}
-        >Close</NewItemBar> 
-          
-        
+        ></NewItemBar>
       </Wrapper>
     );
   }

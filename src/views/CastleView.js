@@ -10,7 +10,7 @@ const ListShortCard = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 98vw;
-  margin: 15px auto;
+  margin: 60px auto 0 auto;
 `;
 
 const CastleView = ({ castles }) => (

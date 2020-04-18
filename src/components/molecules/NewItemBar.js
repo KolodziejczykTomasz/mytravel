@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import { Formik } from "formik";
 
@@ -16,26 +16,73 @@ const StyledWrapper = styled.div`
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
   transform: translate(${({ isVisible }) => (isVisible ? "0" : "100%")});
   transition: transform 0.25s ease-in-out;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
 `;
 
+const StyledTitle = styled.h1`
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 500;
+  
+`;
 
-const StyledForm = styled.div``;
-const StyledInput = styled.input``;
-const StyledTextArea = styled.textarea``;
-const Button = styled.button``;
+const StyledForm = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const StyledInput = styled.input`
+  display: block;
+  height: 50px;
+  margin: 15px auto;
+  width: 500px;
+  padding-right: 20px; 
+  background-color: rgba(0, 0, 0, 0.2);
+`;
+const StyledTextArea = styled.textarea`
+  display: block;
+  height: 100px;
+  margin: 15px auto;
+  width: 500px;
+  padding-right: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+`;
 
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: end;
+`;
+
+const StyledButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 70px;
+  height: 70px;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 100px; 
+  margin-bottom: 20px;
+`;
 
 const NewItemBar = ({ isVisible, handleClose, pageContext }) => (
   <StyledWrapper isVisible={isVisible}>
-    <h1>NewItemBar{pageContext}</h1> 
+    <StyledButtonWrapper>
+      <button className="delete is-medium" onClick={handleClose}></button>
+    </StyledButtonWrapper>
+
+    <StyledTitle>Nowy obiekt{pageContext}</StyledTitle>
     <Formik
       initialValues={{
-        title: "",
-        content: "",
-        articleUrl: "",
-        twitterName: "",
-        created: "",
+        name: "",
+        cordinatesN: "",
+        cordinatesE: "",
+        woj: "",
+        powiat: "",
+        gmina: "",
+        miejscowosc: "",
+        description: "",
       }}
       onSubmit={(values) => {
         // addItem(pageContext, values);
@@ -46,42 +93,78 @@ const NewItemBar = ({ isVisible, handleClose, pageContext }) => (
         <StyledForm>
           <StyledInput
             type="text"
-            name="title"
-            placeholder="title"
+            name="name"
+            placeholder="Nazwa"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.title}
+            value={values.name}
           />
-          {pageContext === "twitters" && (
-            <StyledInput
-              placeholder="twitter name eg. hello_roman"
-              type="text"
-              name="twitterName"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.twitterName}
-            />
-          )}
-          {pageContext === "articles" && (
-            <StyledInput
-              placeholder="link"
-              type="text"
-              name="articleUrl"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.articleUrl}
-            />
-          )}
+
+          <StyledInput
+            type="text"
+            name="cordinatesN"
+            placeholder="N"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.cordinatesN}
+          />
+
+          <StyledInput
+            type="text"
+            name="cordinatesE"
+            placeholder="E"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.cordinatesE}
+          />
+
+          <StyledInput
+            type="text"
+            name="woj"
+            placeholder="Wojewódzctwo"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.woj}
+          />
+
+          <StyledInput
+            type="text"
+            name="powiat"
+            placeholder="Powiat"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.powiat}
+          />
+
+          <StyledInput
+            type="text"
+            name="gmina"
+            placeholder="Gmina"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.gmina}
+          />
+
+          <StyledInput
+            type="text"
+            name="miejscowosc"
+            placeholder="Miejscowość"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.miejscowosc}
+          />
+
           <StyledTextArea
-            name="content"
+            name="description"
             as="textarea"
+            placeholder="Opis"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.content}
+            value={values.description}
           />
-          <Button type="submit" >
-            Add Note
-          </Button>
+          <StyledButtonWrapper>
+            <StyledButton type="submit">DODAJ</StyledButton>
+          </StyledButtonWrapper>
         </StyledForm>
       )}
     </Formik>

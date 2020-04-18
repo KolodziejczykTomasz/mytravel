@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import styled from "styled-components";
-
 import { connect } from "react-redux";
 import { removeItem as removeItemAction } from "actions";
+import styled from "styled-components";
 import withContext from "hoc/withContext";
 
 const WrapperStyled = styled.div`
@@ -21,7 +20,7 @@ const NameStyled = styled.div`
   font-size: 1.2rem;
   font-weight: 500;
   border-bottom: 1px solid grey;
-  margin: 15px 0 15px 0;
+  margin: 7px 0 15px 0;
   padding-bottom: 5px;
 `;
 
@@ -35,6 +34,12 @@ const ImageStyled = styled.img`
   @media (max-width: 1100px) {
     max-height: 200px;
   }
+`;
+
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: end;
+  margin: 5px 5px;
 `;
 
 class ShortCard extends Component {
@@ -64,10 +69,12 @@ class ShortCard extends Component {
 
     return (
       <WrapperStyled>
-        <button
-          class="delete is-medium"
-          onClick={() => removeItem(cardType, id)}
-        ></button>
+        <StyledButtonWrapper>
+          <button
+            class="delete is-medium"
+            onClick={() => removeItem(cardType, id)}
+          ></button>
+        </StyledButtonWrapper>
         <ul>
           <NameStyled>{name}</NameStyled>
           <li>
@@ -79,19 +86,21 @@ class ShortCard extends Component {
           <li>Gmina: {gmina}</li>
           <li>Miejscowość: {miejscowosc}</li>
         </ul>
-        <button class="button" onClick={this.handleCardClick}>
-          Więcej
-        </button>
+        <StyledButtonWrapper>
+          <button
+            className="button is-link is-rounded"
+            onClick={this.handleCardClick}
+          >
+            Więcej
+          </button>
+        </StyledButtonWrapper>
       </WrapperStyled>
     );
   }
 }
-
 
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (itemType, id) => dispatch(removeItemAction(itemType, id)),
 });
 
 export default connect(null, mapDispatchToProps)(withContext(ShortCard));
-
-
