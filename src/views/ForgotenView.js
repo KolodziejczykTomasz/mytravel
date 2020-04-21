@@ -13,6 +13,8 @@ const ListShortCard = styled.div`
   margin: 60px auto 0 auto;
 `;
 
+
+
 const ForgotenView = ({ forgotens }) => (
   <>
     <Navigation />
@@ -44,6 +46,7 @@ const ForgotenView = ({ forgotens }) => (
               miejscowosc={miejscowosc}
               description={description}
               cardType="forgotens"
+              pageType="forgotens"
             />
           )
         )}

@@ -71,7 +71,7 @@ class ShortCard extends Component {
       <WrapperStyled>
         <StyledButtonWrapper>
           <button
-            class="delete is-medium"
+            className="delete is-medium"
             onClick={() => removeItem(cardType, id)}
           ></button>
         </StyledButtonWrapper>

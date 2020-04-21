@@ -27,7 +27,6 @@ const StyledButton = styled.button`
 `;
 
 
-
 class ViewTemplate extends Component {
   state = {
     isNewItemBarVisible: false,
@@ -40,11 +39,12 @@ class ViewTemplate extends Component {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, pageContext } = this.props;
     const { isNewItemBarVisible } = this.state;
 
     return (
       <Wrapper>
+        <div>{pageContext}</div>
         <div>{children}</div>
         <StyledButtonWrapper>
           <StyledButton onClick={this.toggleNewItemBar}>PLUS</StyledButton>
@@ -52,8 +52,8 @@ class ViewTemplate extends Component {
 
         <NewItemBar
           handleClose={this.toggleNewItemBar}
-          isVisible={isNewItemBarVisible}
-        ></NewItemBar>
+          isVisible={isNewItemBarVisible} 
+          pageContext="castles"/>
       </Wrapper>
     );
   }

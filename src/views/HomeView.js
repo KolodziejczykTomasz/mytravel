@@ -1,44 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import Navigation from "components/molecules/Navigation/Navigation";
 import FrontCard from "components/molecules/FrontCard";
 import Footer from "components/organisms/Footer/Footer";
-import Hero from 'components/atoms/Hero';
+import Hero from "components/atoms/Hero";
 import styled from "styled-components";
 
-const StyledWrapper = styled.div`
-  border-bottom: 1px solid grey;
-`;
+const StyledWrapper = styled.div``;
 
 const ListShortCard = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 98vw;
-  margin: 15px auto;
+  margin: 0 auto;
 `;
 
 const HeaderListFrontCard = styled.div`
-  font-weight: 400;
   width: 98vw;
-  margin: 30px auto;
+  margin: 30px auto 0 auto;
   text-align: center;
   text-transform: uppercase;
   font-size: 1.8rem;
+  letter-spacing: 5px;
+  font-weight: 500;  
+  border-bottom: 3px solid grey;
 `;
 
 const FooterListFrontCard = styled.div`
   font-weight: 400;
   width: 98vw;
   margin: 30px auto;
-  text-align: center;  
+  text-align: center;
   font-size: 1.2rem;
 `;
 
 const StyledButtonWrapper = styled.div`
   display: flex;
   justify-content: end;
-  margin: 15px 15px;
+  margin: 30px 15px 0 15px;
 `;
 
 
@@ -50,15 +50,18 @@ const HomeView = ({ castles, forgotens }) => (
       <HeaderListFrontCard>Zamki</HeaderListFrontCard>
       <ListShortCard pageType="castles">
         {castles.map(({ url, name }) => (
-          <FrontCard url={url} name={name} />
+          <>
+            <FrontCard url={url} name={name}>             
+            </FrontCard>
+          </>
         ))}
       </ListShortCard>
 
       <FooterListFrontCard>
         <StyledButtonWrapper>
-          <a className="button is-link is-rounded" as={Link} href="/castles">
+          <NavLink className="button is-link is-rounded" to="/castles">
             Więcej
-          </a>
+          </NavLink>
         </StyledButtonWrapper>
       </FooterListFrontCard>
     </StyledWrapper>
@@ -71,21 +74,14 @@ const HomeView = ({ castles, forgotens }) => (
       </ListShortCard>
       <FooterListFrontCard>
         <StyledButtonWrapper>
-          <a
-            className="button is-link is-rounded"
-            as={Link}
-            href="/forgotens"
-          >
+          <NavLink className="button is-link is-rounded" to="/forgotens">
             Więcej
-          </a>
-        </StyledButtonWrapper>
+          </NavLink> </StyledButtonWrapper>
       </FooterListFrontCard>
     </StyledWrapper>
     <Footer />
   </>
 );
-
-
 
 const mapStateToProps = (state) => {
   const { castles, forgotens } = state;

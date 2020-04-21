@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import PageContext from "context";
 
-
 class MainTemplate extends Component {
   state = {
-    pageType: "forgotens",
+    pageType: "",
   };
 
   componentDidMount() {
@@ -34,13 +33,9 @@ class MainTemplate extends Component {
     const { pageType } = this.state;
 
     return (
-      <div>
-        <PageContext.Provider value={pageType}>{children}</PageContext.Provider>
-      </div>
+      <PageContext.Provider value={pageType}>{children}</PageContext.Provider>
     );
   }
 }
-
-
 
 export default withRouter(MainTemplate);

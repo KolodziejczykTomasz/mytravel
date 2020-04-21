@@ -4,13 +4,27 @@ import { connect } from "react-redux";
 import Navigation from "components/molecules/Navigation/Navigation";
 import Card from "components/molecules/Card";
 import Footer from "components/organisms/Footer/Footer";
-
+import withContext from "hoc/withContext";
 
 
 
 class DetailsView extends Component {
   state = {
-    pageType: "",    
+    pageType: "",
+    activeItem: {
+      id: "",
+      url1: "",
+      url2: "",
+      url3: "",
+      name: "",
+      cordinatesN: "",
+      cordinatesE: "",
+      woj: "",
+      powiat: "",
+      gmina: "",
+      miejscowosc: "",
+      description: '',
+    },
   };
 
   componentDidMount() {
@@ -25,44 +39,33 @@ class DetailsView extends Component {
       default:
         console.log("Something went wrong");
     }
+
+     
+  
   }
 
   render() {
-    const {
-      id,
-      url1,
-      url2,
-      url3,    
-      name,
-      cordinatesN,
-      cordinatesE,
-      woj,
-      powiat,
-      gmina,
-      miejscowosc,
-      description,
-    } = this.props;
-
-    const {pageType} = this.state;
+   
+    const { pageType, activeItem } = this.state;
 
     return (
       <>
         <Navigation />
         <Card
-          id={id}
-          key={name}
+          id={activeItem.id}
+          key={activeItem.name}
           pageType={pageType}
-          name={name}
-          cordinatesN={cordinatesN}
-          cordinatesE={cordinatesE}
-          woj={woj}
-          powiat={powiat}
-          gmina={gmina}
-          miejscowosc={miejscowosc}
-          description={description}
-          photo1={url1}
-          photo2={url2}
-          photo3={url3}
+          name={activeItem.name}
+          cordinatesN={activeItem.cordinatesN}
+          cordinatesE={activeItem.cordinatesE}
+          woj={activeItem.woj}
+          powiat={activeItem.powiat}
+          gmina={activeItem.gmina}
+          miejscowosc={activeItem.miejscowosc}
+          description={activeItem.description}
+          photo1={activeItem.url1}
+          photo2={activeItem.url2}
+          photo3={activeItem.url3}
         />
         <Footer />
       </>
@@ -71,9 +74,15 @@ class DetailsView extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  const { castles, forgotens } = state;
-  return { castles, forgotens };
+const mapStateToProps = (state, ownProps) => {
+  if (state[ownProps.pageContext]) {
+    return {
+      activeItem: state[ownProps.pageContext].filter(
+        (item) => item._id === ownProps.match.params.id
+      ),
+    };
+  }
+  return {};
 };
 
-export default connect(mapStateToProps)(DetailsView);
+export default withContext(connect(mapStateToProps)(DetailsView));

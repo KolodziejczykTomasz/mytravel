@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import withContext from "hoc/withContext";
 
 const Button = styled.a`
   display: grid;
@@ -34,8 +35,7 @@ const Card = ({
   gmina,
   miejscowosc,
   pageType,
-}) => {
-  return (
+}) => (
     <>
       <div pageType={pageType}>
         
@@ -63,6 +63,6 @@ const Card = ({
       </div>
     </>
   );
-};
 
-export default Card;
+
+export default withContext(Card);

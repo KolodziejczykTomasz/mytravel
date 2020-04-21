@@ -8,6 +8,7 @@ const StyledImages = styled.img`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  margin-bottom: 80px;
 `;
 
 const StyledTextHero = styled.div`
@@ -23,6 +24,9 @@ const StyledTextHero = styled.div`
   border: 1px solid gray;
   padding: 20px 80px;
   background-color: rgba(0, 0, 0, 0.3);
+  @media (max-width: 1100px) {
+    visibility: hidden;
+  }
 `;
 
 const Hero = () => (

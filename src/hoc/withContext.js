@@ -1,14 +1,19 @@
 import React from "react";
 import PageContext from "context";
+import MainTemplates from "../templates/MainTemplates";
 
 const withContext = (Component) => {
   return function contextComponent(props) {
     return (
-      <PageContext.Consumer>
-        {(context) => <Component {...props} context={context} />}
+      <MainTemplates>
+          <PageContext.Consumer>
+        {(context) => <Component {...props} pageContext={context} />}
       </PageContext.Consumer>
+      </MainTemplates>
+    
     );
   };
 };
 
 export default withContext;
+

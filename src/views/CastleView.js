@@ -17,38 +17,39 @@ const CastleView = ({ castles }) => (
   <>
     <Navigation />
     <ViewTemplates>
-    <ListShortCard pageType="castles">
-      {castles.map(
-        ({
-          id,
-          name,
-          url,
-          cordinatesN,
-          cordinatesE,
-          woj,
-          powiat,
-          gmina,
-          miejscowosc,
-          description,
-        }) => (
-          <ShortCard
-            id={id}
-            url={url}
-            key={name}
-            name={name}
-            cordinatesN={cordinatesN}
-            cordinatesE={cordinatesE}
-            woj={woj}
-            powiat={powiat}
-            gmina={gmina}
-            miejscowosc={miejscowosc}
-            description={description}
-            cardType="castles"
-          />
-        )
-      )}
-    </ListShortCard>
-</ViewTemplates>
+      <ListShortCard pageType="castles">
+        {castles.map(
+          ({
+            id,
+            name,
+            url,
+            cordinatesN,
+            cordinatesE,
+            woj,
+            powiat,
+            gmina,
+            miejscowosc,
+            description,
+          }) => (
+            <ShortCard
+              id={id}
+              url={url}
+              key={name}
+              name={name}
+              cordinatesN={cordinatesN}
+              cordinatesE={cordinatesE}
+              woj={woj}
+              powiat={powiat}
+              gmina={gmina}
+              miejscowosc={miejscowosc}
+              description={description}
+              cardType="castles"
+              pageType="castles"
+            />
+          )
+        )}
+      </ListShortCard>
+    </ViewTemplates>
     <Footer />
   </>
 );
