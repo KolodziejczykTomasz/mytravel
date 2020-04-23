@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import withContext from "hoc/withContext";
 import NewItemBar from "../components/molecules/NewItemBar";
+import MainTemplates from "./MainTemplates";
 
 const Wrapper = styled.div`
   position: relative;
@@ -26,7 +27,6 @@ const StyledButton = styled.button`
   margin-bottom: 20px;
 `;
 
-
 class ViewTemplate extends Component {
   state = {
     isNewItemBarVisible: false,
@@ -43,18 +43,21 @@ class ViewTemplate extends Component {
     const { isNewItemBarVisible } = this.state;
 
     return (
-      <Wrapper>
-        <div>{pageContext}</div>
-        <div>{children}</div>
-        <StyledButtonWrapper>
-          <StyledButton onClick={this.toggleNewItemBar}>PLUS</StyledButton>
-        </StyledButtonWrapper>
+      <MainTemplates>
+        <Wrapper>
+          <div>{pageContext}</div>
+          <div>{children}</div>
+          <StyledButtonWrapper>
+            <StyledButton onClick={this.toggleNewItemBar}>PLUS</StyledButton>
+          </StyledButtonWrapper>
 
-        <NewItemBar
-          handleClose={this.toggleNewItemBar}
-          isVisible={isNewItemBarVisible} 
-          pageContext="castles"/>
-      </Wrapper>
+          <NewItemBar
+            handleClose={this.toggleNewItemBar}
+            isVisible={isNewItemBarVisible}
+            pageContext="castles"
+          />
+        </Wrapper>
+      </MainTemplates>
     );
   }
 }

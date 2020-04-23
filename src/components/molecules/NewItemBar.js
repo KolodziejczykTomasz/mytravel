@@ -93,7 +93,7 @@ const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
           handleClose();
         }}
       >
-        {({ values, handleChange, handleBlur }) => (
+        {({ values, handleChange, handleBlur, resetForm }) => (
           <StyledForm>
             <StyledInput
               type="text"
@@ -167,7 +167,23 @@ const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
               value={values.description}
             />
             <StyledButtonWrapper>
-              <StyledButton type="submit">DODAJ</StyledButton>
+              <StyledButton
+                onClick={() =>
+                  resetForm({
+                    name: "",
+                    cordinatesN: "",
+                    cordinatesE: "",
+                    woj: "",
+                    powiat: "",
+                    gmina: "",
+                    miejscowosc: "",
+                    description: "",
+                  })
+                }
+                type="submit"
+              >
+                DODAJ
+              </StyledButton>
             </StyledButtonWrapper>
           </StyledForm>
         )}

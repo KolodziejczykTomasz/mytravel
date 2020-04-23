@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { removeItem as removeItemAction } from "actions";
 import styled from "styled-components";
 import withContext from "hoc/withContext";
+import MainTemplates from "../../templates/MainTemplates";
 
 const WrapperStyled = styled.div`
   display: grid;
@@ -61,40 +62,43 @@ class ShortCard extends Component {
       cardType,
       removeItem,
     } = this.props;
+    
     const { redirect } = this.state;
 
     if (redirect) {
-      return <Redirect to={`${cardType}/${id}`} />;
+      return <Redirect to={`${cardType}/${id}` } />;
     }
 
     return (
-      <WrapperStyled>
-        <StyledButtonWrapper>
-          <button
-            className="delete is-medium"
-            onClick={() => removeItem(cardType, id)}
-          ></button>
-        </StyledButtonWrapper>
-        <ul>
-          <NameStyled>{name}</NameStyled>
-          <li>
-            <ImageStyled src={url} alt={name} />
-          </li>
-          Położenie:
-          <li>Województwo: {woj}</li>
-          <li>Powiat: {powiat}</li>
-          <li>Gmina: {gmina}</li>
-          <li>Miejscowość: {miejscowosc}</li>
-        </ul>
-        <StyledButtonWrapper>
-          <button
-            className="button is-link is-rounded"
-            onClick={this.handleCardClick}
-          >
-            Więcej
-          </button>
-        </StyledButtonWrapper>
-      </WrapperStyled>
+      <MainTemplates>
+        <WrapperStyled>
+          <StyledButtonWrapper>
+            <button
+              className="delete is-medium"
+              onClick={() => removeItem(cardType, id)}
+            ></button>
+          </StyledButtonWrapper>
+          <ul>
+            <NameStyled>{name}</NameStyled>
+            <li>
+              <ImageStyled src={url} alt={name} />
+            </li>
+            Położenie:
+            <li>Województwo: {woj}</li>
+            <li>Powiat: {powiat}</li>
+            <li>Gmina: {gmina}</li>
+            <li>Miejscowość: {miejscowosc}</li>
+          </ul>
+          <StyledButtonWrapper>
+            <button
+              className="button is-link is-rounded"
+              onClick={this.handleCardClick}
+            >
+              Więcej
+            </button>
+          </StyledButtonWrapper>
+        </WrapperStyled>
+      </MainTemplates>
     );
   }
 }
