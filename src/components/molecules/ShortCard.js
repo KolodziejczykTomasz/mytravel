@@ -6,6 +6,7 @@ import styled from "styled-components";
 import withContext from "hoc/withContext";
 import MainTemplates from "../../templates/MainTemplates";
 
+
 const WrapperStyled = styled.div`
   display: grid;
   grid-template-columns: 1 fr;
@@ -51,6 +52,7 @@ class ShortCard extends Component {
   handleCardClick = () => this.setState({ redirect: true });
 
   render() {
+
     const {
       id,
       url,
@@ -96,6 +98,7 @@ class ShortCard extends Component {
             >
               Więcej
             </button>
+            
           </StyledButtonWrapper>
         </WrapperStyled>
       </MainTemplates>

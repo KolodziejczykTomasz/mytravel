@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "components/molecules/Navigation/Navigation";
+import Navigation from "components/molecules/Navigation";
 import ShortCard from "components/molecules/ShortCard";
 import Footer from "components/organisms/Footer/Footer";
 import styled from "styled-components";

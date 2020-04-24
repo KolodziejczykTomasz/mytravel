@@ -1,11 +1,11 @@
 import React from "react";
-import Navigation from "components/molecules/Navigation/Navigation";
+import Navigation from "components/molecules/Navigation";
 import ShortCard from "components/molecules/ShortCard";
 import Footer from "components/organisms/Footer/Footer";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import ViewTemplates from "../templates/ViewTemplates";
-import MainTemplates from "../templates/MainTemplates";
+import ViewTemplates from "templates/ViewTemplates";
+import MainTemplates from "templates/MainTemplates";
 
 const ListShortCard = styled.div`
   display: grid;

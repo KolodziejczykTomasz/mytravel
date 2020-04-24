@@ -1,32 +1,19 @@
 import React, { Component } from "react";
 import { routes } from "routes";
 import { connect } from "react-redux";
-import Navigation from "components/molecules/Navigation/Navigation";
+import Navigation from "components/molecules/Navigation";
 import Card from "components/molecules/Card";
 import Footer from "components/organisms/Footer/Footer";
-
-
-
 
 class DetailsView extends Component {
   state = {
     pageType: "",
-    id: "",
-    url1: "",
-    url2: "",
-    url3: "",
-    name: "",
-    cordinatesN: "",
-    cordinatesE: "",
-    woj: "",
-    powiat: "",
-    gmina: "",
-    miejscowosc: "",
-    description: "",    
+    id: 0,
   };
 
   componentDidMount() {
     const { match } = this.props;
+
     switch (match.path) {
       case routes.castle:
         this.setState({ pageType: "castles" });
@@ -37,13 +24,27 @@ class DetailsView extends Component {
       default:
         console.log("Something went wrong");
     }
+
+    switch (match.params.id) {
+      case "1":
+        this.setState({ id: 0 });
+        break;
+      case "2":
+        this.setState({ id: 1 });
+        break;
+      case "3":
+        this.setState({ id: 2 });
+        break;
+      default:
+        console.log("Something went wrong");
+    }
   }
 
   render() {
-   const {pageType} = this.state; 
+    const { pageType, id } = this.state;
+    
 
     const {
-      id,
       url,
       url1,
       url2,
@@ -56,15 +57,14 @@ class DetailsView extends Component {
       gmina,
       miejscowosc,
       description,
-    } = this.props.castles[2];
-    
+    } = this.props.castles[id];
 
  
+
     return (
       <>
         <Navigation />
         <Card
-          id={id}
           key={name}
           pageType={pageType}
           name={name}
@@ -92,4 +92,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(DetailsView);
-

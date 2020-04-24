@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import Navigation from "components/molecules/Navigation/Navigation";
+import Navigation from "components/molecules/Navigation";
 import FrontCard from "components/molecules/FrontCard";
 import Footer from "components/organisms/Footer/Footer";
 import Hero from "components/atoms/Hero";
