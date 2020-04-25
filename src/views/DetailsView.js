@@ -7,7 +7,7 @@ import Footer from "components/organisms/Footer/Footer";
 
 class DetailsView extends Component {
   state = {
-    pageType: "",
+    pageType: "castles",
     id: 0,
   };
 
@@ -43,43 +43,50 @@ class DetailsView extends Component {
   render() {
     const { pageType, id } = this.state;
     
+  
+   
 
-    const {
-      url,
-      url1,
-      url2,
-      url3,
-      name,
-      cordinatesN,
-      cordinatesE,
-      woj,
-      powiat,
-      gmina,
-      miejscowosc,
-      description,
-    } = this.props.castles[id];
-
- 
 
     return (
       <>
         <Navigation />
-        <Card
-          key={name}
-          pageType={pageType}
-          name={name}
-          cordinatesN={cordinatesN}
-          cordinatesE={cordinatesE}
-          woj={woj}
-          powiat={powiat}
-          gmina={gmina}
-          miejscowosc={miejscowosc}
-          description={description}
-          url={url}
-          photo1={url1}
-          photo2={url2}
-          photo3={url3}
-        />
+        {pageType === "forgotens" && (
+          <Card
+            key={this.props.forgotens[id].name}
+            pageType={pageType}
+            name={this.props.forgotens[id].name}
+            cordinatesN={this.props.forgotens[id].cordinatesN}
+            cordinatesE={this.props.forgotens[id].cordinatesE}
+            woj={this.props.forgotens[id].woj}
+            powiat={this.props.forgotens[id].powiat}
+            gmina={this.props.forgotens[id].gmina}
+            miejscowosc={this.props.forgotens[id].miejscowosc}
+            description={this.props.forgotens[id].description}
+            url={this.props.forgotens[id].url}
+            photo1={this.props.forgotens[id].url1}
+            photo2={this.props.forgotens[id].url2}
+            photo3={this.props.forgotens[id].url3}
+          />
+        )}
+        {pageType === "castles" && (
+          <Card
+            key={this.props.castles[id].name}
+            pageType={pageType}
+            name={this.props.castles[id].name}
+            cordinatesN={this.props.castles[id].cordinatesN}
+            cordinatesE={this.props.castles[id].cordinatesE}
+            woj={this.props.castles[id].woj}
+            powiat={this.props.castles[id].powiat}
+            gmina={this.props.castles[id].gmina}
+            miejscowosc={this.props.castles[id].miejscowosc}
+            description={this.props.castles[id].description}
+            url={this.props.castles[id].url}
+            photo1={this.props.castles[id].url1}
+            photo2={this.props.castles[id].url2}
+            photo3={this.props.castles[id].url3}
+          />
+        )}
+
         <Footer />
       </>
     );

@@ -6,7 +6,6 @@ import styled from "styled-components";
 import withContext from "hoc/withContext";
 import MainTemplates from "../../templates/MainTemplates";
 
-
 const WrapperStyled = styled.div`
   display: grid;
   grid-template-columns: 1 fr;
@@ -17,7 +16,9 @@ const WrapperStyled = styled.div`
 `;
 
 const NameStyled = styled.div`
-  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-content: center;
   text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 500;
@@ -52,7 +53,6 @@ class ShortCard extends Component {
   handleCardClick = () => this.setState({ redirect: true });
 
   render() {
-
     const {
       id,
       url,
@@ -64,11 +64,11 @@ class ShortCard extends Component {
       cardType,
       removeItem,
     } = this.props;
-    
+
     const { redirect } = this.state;
 
     if (redirect) {
-      return <Redirect to={`${cardType}/${id}` } />;
+      return <Redirect to={`${cardType}/${id}`} />;
     }
 
     return (
@@ -98,7 +98,6 @@ class ShortCard extends Component {
             >
               Więcej
             </button>
-            
           </StyledButtonWrapper>
         </WrapperStyled>
       </MainTemplates>
