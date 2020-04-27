@@ -11,6 +11,14 @@ const ListShortCard = styled.div`
   grid-template-columns: repeat(3, 1fr);
   width: 98vw;
   margin: 60px auto 0 auto;
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 120px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 120px;
+  }
 `;
 
 

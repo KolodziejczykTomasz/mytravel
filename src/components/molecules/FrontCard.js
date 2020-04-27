@@ -14,8 +14,15 @@ const ImageStyled = styled.img`
   height: 50vh;
   margin: 15px auto;
 
-  @media (max-width: 1100px) {
-    max-height: 200px;
+  @media (max-width: 1280px) {
+    display: flex;
+    min-height: 200px;
+    flex-shrink: 1;
+    padding: 5px 20px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 5px;
   }
 `;
 

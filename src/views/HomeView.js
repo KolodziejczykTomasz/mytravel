@@ -7,13 +7,25 @@ import Footer from "components/organisms/Footer/Footer";
 import Hero from "components/atoms/Hero";
 import styled from "styled-components";
 
-const StyledWrapper = styled.div``;
+const StyledWrapper = styled.div`
+  @media (max-width: 768px) {    
+    margin-top: 80px;
+  }
+`;
 
 const ListShortCard = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 98vw;
   margin: 0 auto;
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 30px;
+  }
 `;
 
 const HeaderListFrontCard = styled.div`
@@ -23,8 +35,11 @@ const HeaderListFrontCard = styled.div`
   text-transform: uppercase;
   font-size: 1.8rem;
   letter-spacing: 5px;
-  font-weight: 500;  
+  font-weight: 500;
   border-bottom: 3px solid grey;
+  @media (max-width: 768px) {
+    margin-top: 50px;
+  }
 `;
 
 const FooterListFrontCard = styled.div`
@@ -33,6 +48,10 @@ const FooterListFrontCard = styled.div`
   margin: 30px auto;
   text-align: center;
   font-size: 1.2rem;
+  @media (max-width: 768px) {
+    margin-top: 45px;
+    margin-bottom: 5px;
+  }
 `;
 
 const StyledButtonWrapper = styled.div`
@@ -40,7 +59,6 @@ const StyledButtonWrapper = styled.div`
   justify-content: end;
   margin: 30px 15px 0 15px;
 `;
-
 
 const HomeView = ({ castles, forgotens }) => (
   <>
@@ -51,8 +69,7 @@ const HomeView = ({ castles, forgotens }) => (
       <ListShortCard pageType="castles">
         {castles.map(({ url, name }) => (
           <>
-            <FrontCard url={url} name={name}>             
-            </FrontCard>
+            <FrontCard url={url} name={name}></FrontCard>
           </>
         ))}
       </ListShortCard>
@@ -76,7 +93,8 @@ const HomeView = ({ castles, forgotens }) => (
         <StyledButtonWrapper>
           <NavLink className="button is-link is-rounded" to="/forgotens">
             Więcej
-          </NavLink> </StyledButtonWrapper>
+          </NavLink>{" "}
+        </StyledButtonWrapper>
       </FooterListFrontCard>
     </StyledWrapper>
     <Footer />

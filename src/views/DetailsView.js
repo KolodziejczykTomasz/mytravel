@@ -42,10 +42,6 @@ class DetailsView extends Component {
 
   render() {
     const { pageType, id } = this.state;
-    
-  
-   
-
 
     return (
       <>

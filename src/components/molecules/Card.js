@@ -12,6 +12,12 @@ const StyledWrapper = styled.div`
   margin: 80px auto;
   border: 1px solid gray;
   border-radius: 10px;
+  @media (max-width: 1024px) {
+    margin-top: 80px;
+  }
+  @media (max-width: 1023px) {
+    margin-top: 150px;
+  }
 `;
 
 const StyledHeader = styled.div`
@@ -25,6 +31,12 @@ const StyledHeader = styled.div`
   height: 100px;
   border-bottom: 1px solid grey;
   letter-spacing: 3px;
+  @media (max-width: 1024px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 1023px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const StyledWrapperGallery = styled.div`
@@ -39,6 +51,12 @@ const StyledGalleryHeroImage = styled.img`
   height: auto;
   margin: 15px auto;
   border-radius: 10px;
+  @media (max-width: 1024px) {
+    width: 95%;
+  }
+  @media (max-width: 1023px) {
+    width: 95%;
+  }
 `;
 
 const StyledGalleryItems = styled.div`
@@ -55,6 +73,16 @@ const StyledWrapperDescription = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
   margin-top: 50px;
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 15px;
+    margin-top: 10px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 15px;
+    margin-top: 10px;
+  }
 `;
 
 const StyledDescriptionColumnLeft = styled.div`
