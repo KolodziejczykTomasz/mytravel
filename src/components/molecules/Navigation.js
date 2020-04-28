@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const NavWarpper = styled.nav``;
 
@@ -36,10 +36,7 @@ const Navigation = () => {
       navigation"
     >
       <NavBrand className="navbar-brand">
-        <NavBrandImg
-          src="https://bulma.io/images/bulma-logo.png"
-          alt="Brand logo"
-        />
+        <NavBrandImg src="https://bulma.io/images/bulma-logo.png" alt="Brand logo" />
         <Link
           role="button"
           className="navbar-burger burger"

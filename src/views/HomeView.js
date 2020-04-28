@@ -36,7 +36,7 @@ const HeaderListFrontCard = styled.div`
   font-size: 1.8rem;
   letter-spacing: 5px;
   font-weight: 500;
-  border-bottom: 3px solid grey;
+  border-bottom: 1px solid grey;
   @media (max-width: 768px) {
     margin-top: 50px;
   }

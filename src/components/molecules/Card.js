@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import withContext from "hoc/withContext";
-import MainTemplates from "templates/MainTemplates";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import withContext from 'hoc/withContext';
+import MainTemplates from 'templates/MainTemplates';
 
 const StyledWrapper = styled.div`
   display: block;
@@ -66,7 +66,7 @@ const StyledGalleryItems = styled.div`
 
 const StyledGalleryItem = styled.img`
   display: flex;
-  padding: 15px 15px;  
+  padding: 15px 15px;
 `;
 
 const StyledWrapperDescription = styled.div`
@@ -175,9 +175,7 @@ class Card extends Component {
               <StyledDescriptionItem>Województwo: {woj}</StyledDescriptionItem>
               <StyledDescriptionItem>Powiat: {powiat}</StyledDescriptionItem>
               <StyledDescriptionItem>Gmina: {gmina}</StyledDescriptionItem>
-              <StyledDescriptionItem>
-                Miejscowość: {miejscowosc}
-              </StyledDescriptionItem>
+              <StyledDescriptionItem>Miejscowość: {miejscowosc}</StyledDescriptionItem>
             </StyledDescriptionColumnLeft>
             <StyledDescriptionColumnRight>
               <StyledDescriptionTitle> Opis:</StyledDescriptionTitle>

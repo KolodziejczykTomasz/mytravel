@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import { removeItem as removeItemAction } from "actions";
-import styled from "styled-components";
-import withContext from "hoc/withContext";
-import MainTemplates from "../../templates/MainTemplates";
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { removeItem as removeItemAction } from 'actions';
+import styled from 'styled-components';
+import withContext from 'hoc/withContext';
+import MainTemplates from 'templates/MainTemplates';
 
 const WrapperStyled = styled.div`
   display: grid;
@@ -53,17 +53,7 @@ class ShortCard extends Component {
   handleCardClick = () => this.setState({ redirect: true });
 
   render() {
-    const {
-      id,
-      url,
-      name,
-      woj,
-      powiat,
-      gmina,
-      miejscowosc,
-      cardType,
-      removeItem,
-    } = this.props;
+    const { id, url, name, woj, powiat, gmina, miejscowosc, cardType, removeItem } = this.props;
 
     const { redirect } = this.state;
 
@@ -75,10 +65,7 @@ class ShortCard extends Component {
       <MainTemplates>
         <WrapperStyled>
           <StyledButtonWrapper>
-            <button
-              className="delete is-medium"
-              onClick={() => removeItem(cardType, id)}
-            ></button>
+            <button className="delete is-medium" onClick={() => removeItem(cardType, id)}></button>
           </StyledButtonWrapper>
           <ul>
             <NameStyled>{name}</NameStyled>
@@ -92,10 +79,7 @@ class ShortCard extends Component {
             <li>Miejscowość: {miejscowosc}</li>
           </ul>
           <StyledButtonWrapper>
-            <button
-              className="button is-link is-rounded"
-              onClick={this.handleCardClick}
-            >
+            <button className="button is-link is-rounded" onClick={this.handleCardClick}>
               Więcej
             </button>
           </StyledButtonWrapper>

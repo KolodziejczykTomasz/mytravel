@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 const WrapperStyled = styled.div`
   display: grid;
@@ -27,9 +27,10 @@ const ImageStyled = styled.img`
 `;
 
 const StyledText = styled.div`
+  display: inline-block;
   text-align: center;
   position: absolute;
-  top: 85%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -39,7 +40,14 @@ const StyledText = styled.div`
   letter-spacing: 2px;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 5px 15px;
-  @media (max-width: 1100px) {
+
+  @media (max-width: 1280px) {
+    font-size: 0.8rem;
+    top: 75%;
+    width: auto;
+  }
+
+  @media (max-width: 1279px) {
     visibility: hidden;
   }
 `;

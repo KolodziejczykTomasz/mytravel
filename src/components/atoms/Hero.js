@@ -1,6 +1,6 @@
-import React from "react";
-import hero from "assets/images/hero.jpg";
-import styled from "styled-components";
+import React from 'react';
+import hero from 'assets/images/hero.jpg';
+import styled from 'styled-components';
 
 const StyledImages = styled.img`
   width: 100vw;

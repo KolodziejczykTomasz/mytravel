@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import withContext from "hoc/withContext";
-import { connect } from "react-redux";
-import { addItem as addItemAction } from "actions";
-import { Formik, Form } from "formik";
-import MainTemplates from "../../templates/MainTemplates";
+import React from 'react';
+import { connect } from 'react-redux';
+import { addItem as addItemAction } from 'actions';
+import { Formik, Form } from 'formik';
+import styled from 'styled-components';
+import withContext from 'hoc/withContext';
+import MainTemplates from 'templates/MainTemplates';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
   width: 680px;
   border-left: 1px solid grey;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-  transform: translate(${({ isVisible }) => (isVisible ? "0" : "100%")});
+  transform: translate(${({ isVisible }) => (isVisible ? '0' : '100%')});
   transition: transform 0.25s ease-in-out;
   background-color: rgba(255, 255, 255, 1);
   z-index: 9999;
@@ -79,14 +79,14 @@ const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
       <StyledTitle>Nowy obiekt {pageContext}</StyledTitle>
       <Formik
         initialValues={{
-          name: "",
-          cordinatesN: "",
-          cordinatesE: "",
-          woj: "",
-          powiat: "",
-          gmina: "",
-          miejscowosc: "",
-          description: "",
+          name: '',
+          cordinatesN: '',
+          cordinatesE: '',
+          woj: '',
+          powiat: '',
+          gmina: '',
+          miejscowosc: '',
+          description: '',
         }}
         onSubmit={(values) => {
           addItem(pageContext, values);
@@ -170,14 +170,14 @@ const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
               <StyledButton
                 onClick={() =>
                   resetForm({
-                    name: "",
-                    cordinatesN: "",
-                    cordinatesE: "",
-                    woj: "",
-                    powiat: "",
-                    gmina: "",
-                    miejscowosc: "",
-                    description: "",
+                    name: '',
+                    cordinatesN: '',
+                    cordinatesE: '',
+                    woj: '',
+                    powiat: '',
+                    gmina: '',
+                    miejscowosc: '',
+                    description: '',
                   })
                 }
                 type="submit"
@@ -193,8 +193,7 @@ const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-  addItem: (itemType, itemContent) =>
-    dispatch(addItemAction(itemType, itemContent)),
+  addItem: (itemType, itemContent) => dispatch(addItemAction(itemType, itemContent)),
 });
 
 export default connect(null, mapDispatchToProps)(withContext(NewItemBar));
