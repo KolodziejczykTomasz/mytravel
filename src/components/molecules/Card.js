@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import withContext from 'hoc/withContext';
 import MainTemplates from 'templates/MainTemplates';
+import PropTypes from 'prop-types'; 
 
 const StyledWrapper = styled.div`
   display: block;
@@ -190,5 +191,22 @@ class Card extends Component {
     );
   }
 }
+
+Card.propTypes = {
+  pageContext: PropTypes.oneOf(['castles', 'forgotens']),
+  url: PropTypes.string.isRequired,
+  photo1: PropTypes.string,
+  photo2: PropTypes.string,
+  photo3: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  cordinatesN: PropTypes.string,
+  cordinatesE: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  woj: PropTypes.string.isRequired,
+  powiat: PropTypes.string.isRequired,
+  gmina: PropTypes.string.isRequired,
+  miejscowosc: PropTypes.string.isRequired,
+};
+
 
 export default withContext(Card);
