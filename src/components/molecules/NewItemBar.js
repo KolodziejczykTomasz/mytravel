@@ -5,6 +5,7 @@ import { Formik, Form } from 'formik';
 import styled from 'styled-components';
 import withContext from 'hoc/withContext';
 import MainTemplates from 'templates/MainTemplates';
+import PropTypes from 'prop-types';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -195,5 +196,12 @@ const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
 const mapDispatchToProps = (dispatch) => ({
   addItem: (itemType, itemContent) => dispatch(addItemAction(itemType, itemContent)),
 });
+
+NewItemBar.propTypes = {
+  pageContext: PropTypes.oneOf(['castles', 'forgotens']),
+  isVisible: PropTypes.bool,
+  addItem: PropTypes.func.isRequired,
+  handleClose: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(withContext(NewItemBar));

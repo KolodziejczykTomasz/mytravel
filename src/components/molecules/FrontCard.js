@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const WrapperStyled = styled.div`
   display: grid;
@@ -52,7 +53,7 @@ const StyledText = styled.div`
   }
 `;
 
-class ShortCard extends Component {
+class FrontCard extends Component {
   state = {
     redirect: false,
   };
@@ -73,4 +74,9 @@ class ShortCard extends Component {
   }
 }
 
-export default ShortCard;
+FrontCard.propTypes = {  
+  url: PropTypes.string.isRequired,  
+  name: PropTypes.string.isRequired,  
+};
+
+export default FrontCard;

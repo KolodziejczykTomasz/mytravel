@@ -5,6 +5,7 @@ import { removeItem as removeItemAction } from 'actions';
 import styled from 'styled-components';
 import withContext from 'hoc/withContext';
 import MainTemplates from 'templates/MainTemplates';
+import PropTypes from 'prop-types';
 
 const WrapperStyled = styled.div`
   display: grid;
@@ -92,5 +93,14 @@ class ShortCard extends Component {
 const mapDispatchToProps = (dispatch) => ({
   removeItem: (itemType, id) => dispatch(removeItemAction(itemType, id)),
 });
+
+ShortCard.propTypes = {  
+  url: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired, 
+  woj: PropTypes.string.isRequired,
+  powiat: PropTypes.string.isRequired,
+  gmina: PropTypes.string.isRequired,
+  miejscowosc: PropTypes.string.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(withContext(ShortCard));

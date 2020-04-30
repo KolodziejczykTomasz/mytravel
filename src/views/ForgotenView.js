@@ -5,6 +5,7 @@ import Footer from "components/organisms/Footer/Footer";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import ViewTemplates from "../templates/ViewTemplates";
+import PropTypes from 'prop-types';
 
 const ListShortCard = styled.div`
   display: grid;
@@ -63,6 +64,30 @@ const ForgotenView = ({ forgotens }) => (
     <Footer />
   </>
 );
+
+ForgotenView.propTypes = {
+ forgotens: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      photo1: PropTypes.string,
+      photo2: PropTypes.string,
+      photo3: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      cordinatesN: PropTypes.string,
+      cordinatesE: PropTypes.string,
+      description: PropTypes.string.isRequired,
+      woj: PropTypes.string.isRequired,
+      powiat: PropTypes.string.isRequired,
+      gmina: PropTypes.string.isRequired,
+      miejscowosc: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+ForgotenView.defaultProps = {
+  forgotens: [],
+};
 
 const mapStateToProps = (state) => {
   const { forgotens } = state;

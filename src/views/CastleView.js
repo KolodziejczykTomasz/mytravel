@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import ViewTemplates from "templates/ViewTemplates";
 import MainTemplates from "templates/MainTemplates";
+import PropTypes from 'prop-types';
 
 const ListShortCard = styled.div`
   display: grid;
@@ -65,9 +66,34 @@ const CastleView = ({ castles }) => (
   </>
 );
 
+CastleView.propTypes = {
+  castles: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      photo1: PropTypes.string,
+      photo2: PropTypes.string,
+      photo3: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      cordinatesN: PropTypes.string,
+      cordinatesE: PropTypes.string,
+      description: PropTypes.string.isRequired,
+      woj: PropTypes.string.isRequired,
+      powiat: PropTypes.string.isRequired,
+      gmina: PropTypes.string.isRequired,
+      miejscowosc: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+CastleView.defaultProps = {
+  castles: [],
+};
+
 const mapStateToProps = (state) => {
   const { castles } = state;
   return { castles };
 };
+
 
 export default connect(mapStateToProps)(CastleView);

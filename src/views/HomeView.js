@@ -1,14 +1,14 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import Navigation from "components/molecules/Navigation";
-import FrontCard from "components/molecules/FrontCard";
-import Footer from "components/organisms/Footer/Footer";
-import Hero from "components/atoms/Hero";
-import styled from "styled-components";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Navigation from 'components/molecules/Navigation';
+import FrontCard from 'components/molecules/FrontCard';
+import Footer from 'components/organisms/Footer/Footer';
+import Hero from 'components/atoms/Hero';
+import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-  @media (max-width: 768px) {    
+  @media (max-width: 768px) {
     margin-top: 80px;
   }
 `;
@@ -68,12 +68,9 @@ const HomeView = ({ castles, forgotens }) => (
       <HeaderListFrontCard>Zamki</HeaderListFrontCard>
       <ListShortCard pageType="castles">
         {castles.map(({ url, name }) => (
-          <>
-            <FrontCard url={url} name={name}></FrontCard>
-          </>
+          <FrontCard url={url} name={name}></FrontCard>
         ))}
       </ListShortCard>
-
       <FooterListFrontCard>
         <StyledButtonWrapper>
           <NavLink className="button is-link is-rounded" to="/castles">
@@ -93,7 +90,7 @@ const HomeView = ({ castles, forgotens }) => (
         <StyledButtonWrapper>
           <NavLink className="button is-link is-rounded" to="/forgotens">
             Więcej
-          </NavLink>{" "}
+          </NavLink>{' '}
         </StyledButtonWrapper>
       </FooterListFrontCard>
     </StyledWrapper>
