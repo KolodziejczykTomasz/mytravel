@@ -65,34 +65,40 @@ const HomeView = ({ castles, forgotens }) => (
     <Navigation />
     <Hero />
     <StyledWrapper>
-      <HeaderListFrontCard>Zamki</HeaderListFrontCard>
-      <ListShortCard pageType="castles">
-        {castles.map(({ url, name }) => (
-          <FrontCard url={url} name={name}></FrontCard>
-        ))}
-      </ListShortCard>
-      <FooterListFrontCard>
-        <StyledButtonWrapper>
-          <NavLink className="button is-link is-rounded" to="/castles">
-            Więcej
-          </NavLink>
-        </StyledButtonWrapper>
-      </FooterListFrontCard>
+      {castles.length ? (
+        <>
+          <HeaderListFrontCard>Zamki</HeaderListFrontCard>
+          <ListShortCard pageType="castles">
+            {castles.map(({ url, name }) => (
+              <FrontCard url={url} name={name}></FrontCard>
+            ))}
+          </ListShortCard>
+          <StyledButtonWrapper>
+            <NavLink className="button is-link is-rounded" to="/castles">
+              Więcej
+            </NavLink>
+          </StyledButtonWrapper>
+        </>
+      ) : null}
+      <FooterListFrontCard></FooterListFrontCard>
     </StyledWrapper>
     <StyledWrapper>
-      <HeaderListFrontCard>Zapomniane</HeaderListFrontCard>
-      <ListShortCard pageType="forgotens">
-        {forgotens.map(({ url, name }) => (
-          <FrontCard url={url} name={name} />
-        ))}
-      </ListShortCard>
-      <FooterListFrontCard>
-        <StyledButtonWrapper>
-          <NavLink className="button is-link is-rounded" to="/forgotens">
-            Więcej
-          </NavLink>{' '}
-        </StyledButtonWrapper>
-      </FooterListFrontCard>
+      {forgotens.length ? (
+        <>
+          <HeaderListFrontCard>Zapomniane</HeaderListFrontCard>
+          <ListShortCard pageType="forgotens">
+            {forgotens.map(({ url, name }) => (
+              <FrontCard url={url} name={name} />
+            ))}
+          </ListShortCard>
+          <StyledButtonWrapper>
+            <NavLink className="button is-link is-rounded" to="/forgotens">
+              Więcej
+            </NavLink>
+          </StyledButtonWrapper>
+        </>
+      ) : null}
+      <FooterListFrontCard></FooterListFrontCard>
     </StyledWrapper>
     <Footer />
   </>
