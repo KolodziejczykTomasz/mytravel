@@ -70,6 +70,10 @@ const StyledButton = styled.button`
   margin-bottom: 20px;
 `;
 
+const StyledSpan = styled.span`
+  color: orange;
+`;
+
 const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
   <MainTemplates>
     <StyledWrapper isVisible={isVisible}>
@@ -77,7 +81,12 @@ const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
         <button className="delete is-medium" onClick={handleClose}></button>
       </StyledButtonWrapper>
 
-      <StyledTitle>Nowy obiekt {pageContext}</StyledTitle>
+      <StyledTitle>
+        Nowy{' '}
+        <StyledSpan>
+          {pageContext === 'castles' ? 'zamek lub pałac' : 'obiekt zapomniany'}
+        </StyledSpan>
+      </StyledTitle>
       <Formik
         initialValues={{
           name: '',
