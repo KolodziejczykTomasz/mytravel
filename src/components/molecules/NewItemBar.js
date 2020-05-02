@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addItem as addItemAction } from 'actions';
 import { Formik, Form } from 'formik';
@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import withContext from 'hoc/withContext';
 import MainTemplates from 'templates/MainTemplates';
 import PropTypes from 'prop-types';
+import * as Yup from 'yup';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -57,150 +58,150 @@ const StyledButtonWrapper = styled.div`
   justify-content: end;
 `;
 
-const StyledButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 70px;
-  height: 70px;
-  align-items: center;
-  cursor: pointer;
-  font-weight: 500;
-  border-radius: 100px;
-  margin-bottom: 20px;
-`;
-
 const StyledSpan = styled.span`
   color: orange;
 `;
 
-const NewItemBar = ({ isVisible, handleClose, pageContext, addItem }) => (
-  <MainTemplates>
-    <StyledWrapper isVisible={isVisible}>
-      <StyledButtonWrapper>
-        <button className="delete is-medium" onClick={handleClose}></button>
-      </StyledButtonWrapper>
+const StyledMessageError = styled.div`
+color: red;
+`;
 
-      <StyledTitle>
-        Nowy{' '}
-        <StyledSpan>
-          {pageContext === 'castles' ? 'zamek lub pałac' : 'obiekt zapomniany'}
-        </StyledSpan>
-      </StyledTitle>
-      <Formik
-        initialValues={{
-          name: '',
-          cordinatesN: '',
-          cordinatesE: '',
-          woj: '',
-          powiat: '',
-          gmina: '',
-          miejscowosc: '',
-          description: '',
-        }}
-        onSubmit={(values) => {
-          addItem(pageContext, values);
-          handleClose();
-        }}
-      >
-        {({ values, handleChange, handleBlur, resetForm }) => (
-          <StyledForm>
-            <StyledInput
-              type="text"
-              name="name"
-              placeholder="Nazwa"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.name}
-            />
 
-            <StyledInput
-              type="text"
-              name="cordinatesN"
-              placeholder="N"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.cordinatesN}
-            />
+class NewItemBar extends Component {
+  render() {
+    const { isVisible, handleClose, pageContext, addItem } = this.props;
+    return (
+      <MainTemplates>
+        <StyledWrapper isVisible={isVisible}>
+          <StyledButtonWrapper>
+            <button className="delete is-medium" onClick={handleClose}></button>
+          </StyledButtonWrapper>
 
-            <StyledInput
-              type="text"
-              name="cordinatesE"
-              placeholder="E"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.cordinatesE}
-            />
+          <StyledTitle>
+            Nowy{' '}
+            <StyledSpan>
+              {pageContext === 'castles' ? 'zamek lub pałac' : 'obiekt zapomniany'}
+              <hr style={{ margin: '.5rem 0' }} />
+            </StyledSpan>
+          </StyledTitle>
+          <Formik
+            initialValues={{
+              name: '',
+              cordinatesN: '',
+              cordinatesE: '',
+              woj: '',
+              powiat: '',
+              gmina: '',
+              miejscowosc: '',
+              description: '',
+            }}
+            validationSchema={Yup.object({
+              name: Yup.string()
+                .min(2, 'Nazwa jest zbyt krótka!')
+                .max(50, 'Zbyt długa nazwa!')
+                .required('Pole obowiązkowe'),
+              cordinatesE: Yup.number(),
+              cordinatesN: Yup.number(),
+            })}
+            onSubmit={(values, { resetForm }) => {
+              addItem(pageContext, values);
+              handleClose();
+              resetForm({ values: '' });
+            }}
+          >
+            {({ values, handleChange, handleBlur, touched, errors }) => (
+              <StyledForm>
+                <StyledInput
+                  type="text"
+                  name="name"
+                  placeholder="Nazwa"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.name}
+                />
+                {errors.name && touched.name ? (
+                  <StyledMessageError>{errors.name}</StyledMessageError>
+                ) : null}
 
-            <StyledInput
-              type="text"
-              name="woj"
-              placeholder="Wojewódzctwo"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.woj}
-            />
+                <StyledInput
+                  type="text"
+                  name="cordinatesN"
+                  placeholder="N"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.cordinatesN}
+                />
+                {errors.cordinatesN && touched.cordinatesN ? (
+                  <StyledMessageError>Użyj lidzb aby uzupełnić pole</StyledMessageError>
+                ) : null}
+                <StyledInput
+                  type="text"
+                  name="cordinatesE"
+                  placeholder="E"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.cordinatesE}
+                />
+                {errors.cordinatesE && touched.cordinatesE ? (
+                  <StyledMessageError>Użyj lidzb aby uzupełnić pole</StyledMessageError>
+                ) : null}
+                <StyledInput
+                  type="text"
+                  name="woj"
+                  placeholder="Wojewódzctwo"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.woj}
+                />
 
-            <StyledInput
-              type="text"
-              name="powiat"
-              placeholder="Powiat"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.powiat}
-            />
+                <StyledInput
+                  type="text"
+                  name="powiat"
+                  placeholder="Powiat"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.powiat}
+                />
 
-            <StyledInput
-              type="text"
-              name="gmina"
-              placeholder="Gmina"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.gmina}
-            />
+                <StyledInput
+                  type="text"
+                  name="gmina"
+                  placeholder="Gmina"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.gmina}
+                />
 
-            <StyledInput
-              type="text"
-              name="miejscowosc"
-              placeholder="Miejscowość"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.miejscowosc}
-            />
+                <StyledInput
+                  type="text"
+                  name="miejscowosc"
+                  placeholder="Miejscowość"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.miejscowosc}
+                />
 
-            <StyledTextArea
-              name="description"
-              as="textarea"
-              placeholder="Opis"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.description}
-            />
-            <StyledButtonWrapper>
-              <StyledButton
-                onClick={() =>
-                  resetForm({
-                    name: '',
-                    cordinatesN: '',
-                    cordinatesE: '',
-                    woj: '',
-                    powiat: '',
-                    gmina: '',
-                    miejscowosc: '',
-                    description: '',
-                  })
-                }
-                type="submit"
-              >
-                DODAJ
-              </StyledButton>
-            </StyledButtonWrapper>
-          </StyledForm>
-        )}
-      </Formik>
-    </StyledWrapper>
-  </MainTemplates>
-);
+                <StyledTextArea
+                  name="description"
+                  as="textarea"
+                  placeholder="Opis"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.description}
+                />
+                <StyledButtonWrapper>
+                  <button type="submit" className="button is-link">
+                    DODAJ
+                  </button>
+                </StyledButtonWrapper>
+              </StyledForm>
+            )}
+          </Formik>
+        </StyledWrapper>
+      </MainTemplates>
+    );
+  }
+}
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (itemType, itemContent) => dispatch(addItemAction(itemType, itemContent)),

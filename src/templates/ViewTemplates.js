@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import withContext from "hoc/withContext";
-import NewItemBar from "../components/molecules/NewItemBar";
-import MainTemplates from "./MainTemplates";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import withContext from 'hoc/withContext';
+import NewItemBar from '../components/molecules/NewItemBar';
+import MainTemplates from './MainTemplates';
 
 const Wrapper = styled.div`
   position: relative;
@@ -32,7 +32,8 @@ class ViewTemplate extends Component {
     isNewItemBarVisible: false,
   };
 
-  toggleNewItemBar = () => {
+
+  toggleNewItemBar = (e) => {
     this.setState((prevState) => ({
       isNewItemBarVisible: !prevState.isNewItemBarVisible,
     }));
