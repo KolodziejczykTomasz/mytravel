@@ -59,13 +59,13 @@ const StyledButtonWrapper = styled.div`
 `;
 
 const StyledSpan = styled.span`
-  color: orange;
+  color: blue;
+  font-weight: 600;
 `;
 
 const StyledMessageError = styled.div`
-color: red;
+  color: red;
 `;
-
 
 class NewItemBar extends Component {
   render() {
@@ -190,7 +190,7 @@ class NewItemBar extends Component {
                   value={values.description}
                 />
                 <StyledButtonWrapper>
-                  <button type="submit" className="button is-link">
+                  <button type="submit" className="button is-info is-rounded">
                     DODAJ
                   </button>
                 </StyledButtonWrapper>

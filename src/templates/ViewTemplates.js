@@ -11,20 +11,7 @@ const Wrapper = styled.div`
 const StyledButtonWrapper = styled.div`
   display: flex;
   justify-content: end;
-`;
-
-const StyledButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 70px;
-  height: 70px;
-  align-items: center;
-  cursor: pointer;
-  font-weight: 500;
-  border-radius: 100px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin: 30px 15px 30px 15px;
 `;
 
 class ViewTemplate extends Component {
@@ -49,7 +36,9 @@ class ViewTemplate extends Component {
           <div>{pageContext}</div>
           <div>{children}</div>
           <StyledButtonWrapper>
-            <StyledButton onClick={this.toggleNewItemBar}>PLUS</StyledButton>
+            <button className="button is-info is-rounded" onClick={this.toggleNewItemBar}>
+              DODAJ
+            </button>
           </StyledButtonWrapper>
 
           <NewItemBar
