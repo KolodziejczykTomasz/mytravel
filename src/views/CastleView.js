@@ -69,8 +69,8 @@ const CastleView = ({ castles }) => (
 CastleView.propTypes = {
   castles: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
+      id: PropTypes.number,
+      url: PropTypes.string,
       photo1: PropTypes.string,
       photo2: PropTypes.string,
       photo3: PropTypes.string,

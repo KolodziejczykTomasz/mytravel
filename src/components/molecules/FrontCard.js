@@ -66,7 +66,7 @@ class FrontCard extends Component {
     return (
       <>
         <WrapperStyled>
-          <ImageStyled src={url} alt={name} />
+          <ImageStyled src= {url} alt={name} />
           <StyledText>{name}</StyledText>
         </WrapperStyled>
       </>

@@ -1,16 +1,39 @@
+import pic1 from 'assets/images/castle/krobielowiec/pic1.jpg';
+import pic2 from 'assets/images/castle/krobielowiec/pic2.jpg';
+import pic3 from 'assets/images/castle/krobielowiec/pic3.jpg';
+import pic4 from 'assets/images/castle/krobielowiec/pic4.jpg';
+
+import pic5 from 'assets/images/castle/bobolice/pic1.jpg';
+import pic6 from 'assets/images/castle/bobolice/pic2.jpg';
+import pic7 from 'assets/images/castle/bobolice/pic3.jpg';
+import pic8 from 'assets/images/castle/bobolice/pic4.jpg';
+
+import pic9 from 'assets/images/castle/pieskowaskala/pic1.jpg';
+import pic10 from 'assets/images/castle/pieskowaskala/pic2.jpg';
+import pic11 from 'assets/images/castle/pieskowaskala/pic3.jpg';
+import pic12 from 'assets/images/castle/pieskowaskala/pic4.jpg';
+
+import pic13 from 'assets/images/forgoten/krowiarki/pic1.jpg';
+import pic14 from 'assets/images/forgoten/krowiarki/pic2.jpeg';
+import pic15 from 'assets/images/forgoten/krowiarki/pic3.jpg';
+import pic16 from 'assets/images/forgoten/krowiarki/pic4.jpg';
+
+import pic17 from 'assets/images/forgoten/nakielnica/pic1.jpg';
+import pic18 from 'assets/images/forgoten/nakielnica/pic2.jpg';
+import pic19 from 'assets/images/forgoten/nakielnica/pic3.JPG';
+import pic20 from 'assets/images/forgoten/nakielnica/pic4.jpg';
+
+import pic21 from 'assets/images/forgoten/pszeniczna/pic1.jpg';
+import pic22 from 'assets/images/forgoten/pszeniczna/pic2.jpg';
+import pic23 from 'assets/images/forgoten/pszeniczna/pic3.jpg';
+import pic24 from 'assets/images/forgoten/pszeniczna/pic4.jpg';
+
 const initialState = {
   castles: [
-    {
-      id: 1,
-      url:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92691634_628732687974011_8889532724382007296_o.jpg?_nc_cat=108&_nc_sid=07e735&_nc_ohc=5hyDML-W5HMAX8edcSs&_nc_ht=scontent-waw1-1.xx&oh=735002eb94997c1e975408bf4fcba440&oe=5EB6651F",
-
-      url1:
-        "https://static.polskieszlaki.pl/zdjecia/wycieczki/2014-08/palac-krobielowice-237432.jpg",
-      url2:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92753530_628732417974038_2802137986483879936_o.jpg?_nc_cat=100&_nc_sid=07e735&_nc_ohc=C8445u5GgUMAX-05wpE&_nc_ht=scontent-waw1-1.xx&oh=c222baf693f6f38476b79ffee583f43a&oe=5EB9393F",
-      url3:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92617306_628732317974048_8057904756682653696_o.jpg?_nc_cat=106&_nc_sid=07e735&_nc_ohc=g_eHGQuQWaYAX98BJeD&_nc_ht=scontent-waw1-1.xx&oh=b05a75e11ad2929c5f50946ce299a709&oe=5EB994C4",
+    {url: pic1,
+      url1: pic2,
+      url2: pic3,
+      url3: pic4,
       name: "Pałac Krobielowice",
       cordinatesN: "b/d",
       cordinatesE: "b/d",
@@ -23,15 +46,10 @@ const initialState = {
     },
     {
       id: 2,
-      url: "http://www.zamkipolskie.com/bobol/010.jpg",
-
-      url1:
-        "https://upload.wikimedia.org/wikipedia/commons/c/cc/Zamek_Bobolice_%28Castle_of_Bobolice%29.JPG",
-      url2:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93013210_2712370285651014_8362013334869901312_o.jpg?_nc_cat=103&_nc_sid=07e735&_nc_ohc=AaYnp2UMZ7cAX-jrayI&_nc_ht=scontent-waw1-1.xx&oh=6189fd2ff809b3e5749dcc52e8a9d16b&oe=5EB6BE75",
-      url3:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92573225_2712370818984294_6822380370864898048_o.jpg?_nc_cat=100&_nc_sid=07e735&_nc_ohc=q-Y5pRs5AbAAX_Ewlpe&_nc_ht=scontent-waw1-1.xx&oh=556ab184ca7597706631ee18a5c1bfd1&oe=5EB9335D",
-
+      url: pic5,
+      url1: pic6,
+      url2: pic7,
+      url3:pic8,
       name: "Zamek w Bobolicach",
       cordinatesN: "50°36′47,984",
       cordinatesE: "19°29′34,755",
@@ -44,15 +62,10 @@ const initialState = {
     },
     {
       id: 3,
-      url:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93166699_223924088695720_3404404074827743232_n.jpg?_nc_cat=107&_nc_sid=07e735&_nc_ohc=J__-XcwCeZ8AX8nITd1&_nc_ht=scontent-waw1-1.xx&oh=c42e1dea65fbf38885450d9f20b7c2cc&oe=5EB95D4E",
-
-      url1:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92923922_223924265362369_2231350692704944128_n.jpg?_nc_cat=110&_nc_sid=07e735&_nc_ohc=fepGLfQZ-jEAX9PZ0xn&_nc_ht=scontent-waw1-1.xx&oh=a9858445f6434055c044b617c0c8dfee&oe=5EB79073",
-      url2:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92577962_223924352029027_14972556641566720_n.jpg?_nc_cat=102&_nc_sid=07e735&_nc_ohc=qWfPZV1TbvMAX98AVhA&_nc_ht=scontent-waw1-1.xx&oh=a83cef8a73072f818a13a940ba64b6e3&oe=5EB88DB6",
-      url3:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92569921_223924442029018_6362145337716506624_n.jpg?_nc_cat=100&_nc_sid=07e735&_nc_ohc=RNaScjeTdiQAX_GNTsf&_nc_ht=scontent-waw1-1.xx&oh=81f778c87de084a781b036e6b39fe983&oe=5EB79FD2",
+      url: pic9,
+      url1:pic10,
+      url2: pic11,
+      url3: pic12,
 
       name: "Pieskowa Skała",
       cordinatesN: "b/d",
@@ -69,16 +82,10 @@ const initialState = {
   forgotens: [
     {
       id: 1,
-      url:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93352765_2641282732761717_2768915396542070784_o.jpg?_nc_cat=103&_nc_sid=e007fa&_nc_ohc=l7IApEwxKyoAX_w099G&_nc_ht=scontent-waw1-1.xx&oh=ed1832f87a0ed3bf8be379f708d5ae11&oe=5EB83C16",
-
-      url1:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92523789_2641282866095037_4100197229275381760_o.jpg?_nc_cat=102&_nc_sid=e007fa&_nc_ohc=kTB5Z_DBy2MAX8N3-j-&_nc_ht=scontent-waw1-1.xx&oh=1cde7c5f4d9daf20f0ece10d7a6398dc&oe=5EB9DEF1",
-      url2:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92955088_2641282269428430_6606492873363816448_o.jpg?_nc_cat=108&_nc_sid=e007fa&_nc_ohc=bihCF3TywNcAX_iz14c&_nc_ht=scontent-waw1-1.xx&oh=a177a935790e4a4d1e6cb7cfb364eb07&oe=5EB8ACC0",
-      url3:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/92735220_2641282299428427_2467586508303892480_o.jpg?_nc_cat=100&_nc_sid=e007fa&_nc_ohc=qavRqSFAHBUAX8Y4CM8&_nc_ht=scontent-waw1-1.xx&oh=4e94478c9831a30cc24d078dcf954c29&oe=5EB845A9",
-
+      url: pic13,
+      url1: pic14,
+      url2: pic15,
+      url3: pic16,
       name: "Zespół pałacowo-parkowy w Krowiarkach",
       cordinatesN: "b/d",
       cordinatesE: "b/d",
@@ -91,15 +98,10 @@ const initialState = {
     },
     {
       id: 2,
-      url:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/91888369_1264575020600549_180077825418592256_o.jpg?_nc_cat=102&_nc_sid=07e735&_nc_ohc=g7e84J_kRrcAX-kR65D&_nc_ht=scontent-waw1-1.xx&oh=10acc21107dcf364de048cee73c1cf91&oe=5EB88449",
-
-      url1:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/l/t1.0-9/91767737_1264575463933838_3292083022110654464_o.jpg?_nc_cat=108&_nc_sid=07e735&_nc_ohc=5D5j7tPTx9cAX_HLv0_&_nc_ht=scontent-waw1-1.xx&oh=657eb3f3bfcbe577e5655fa2f2ec9fca&oe=5EB8FD01",
-      url2:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/91302243_1264576063933778_9179028616942452736_o.jpg?_nc_cat=105&_nc_sid=07e735&_nc_ohc=P8guZbU-MmwAX_YnDII&_nc_ht=scontent-waw1-1.xx&oh=607edbbd5ba74a87692aef35ae77c112&oe=5EBA172C",
-      url3:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/91689391_1264576260600425_5167522135911956480_o.jpg?_nc_cat=100&_nc_sid=07e735&_nc_ohc=37amS2xlGEIAX95Q1jX&_nc_ht=scontent-waw1-1.xx&oh=bcdfb86f997205dfff91927402f0ff76&oe=5EB9F2C0",
+      url: pic17,
+      url1: pic18,
+      url2: pic19,
+      url3:pic20,
 
       name: "Dwór w Nakielnicy",
       cordinatesN: "b/d",
@@ -113,15 +115,10 @@ const initialState = {
     },
     {
       id: 3,
-      url:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/91622339_628744884344278_7392591378816958464_o.jpg?_nc_cat=107&_nc_sid=8024bb&_nc_ohc=uXPDrgUJRDMAX9LJipu&_nc_ht=scontent-waw1-1.xx&oh=15fb570d5a4bb975352ab0f056a02bce&oe=5EB69BA7",
-
-      url1:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/91454053_628744867677613_6530264797361995776_o.jpg?_nc_cat=109&_nc_sid=8024bb&_nc_ohc=DdmFW2cjN88AX9K-yjP&_nc_ht=scontent-waw1-1.xx&oh=90fa0a7660a633fc9acc06999633381c&oe=5EB8610E",
-      url2:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/91477191_628745004344266_8081165096966946816_o.jpg?_nc_cat=106&_nc_sid=8024bb&_nc_ohc=LIEoAoVat1AAX8ZgZzp&_nc_ht=scontent-waw1-1.xx&oh=5e0eb85e9c97d39cf7aa0a6fb621277e&oe=5EB7F1AE",
-      url3:
-        "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/91498680_628745084344258_1394721738100572160_o.jpg?_nc_cat=109&_nc_sid=8024bb&_nc_ohc=nU_cjIlfBEMAX8pBK1R&_nc_ht=scontent-waw1-1.xx&oh=95ed634c32f2879574a09c5d8d502183&oe=5EB82A5F",
+      url:pic21,
+      url1:pic22,
+      url2:pic23,
+      url3:pic24,
 
       name: "Pałac Pszeniczna",
       cordinatesN: "b/d",

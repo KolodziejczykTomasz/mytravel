@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Navigation from 'components/molecules/Navigation';
@@ -6,6 +6,7 @@ import FrontCard from 'components/molecules/FrontCard';
 import Footer from 'components/organisms/Footer/Footer';
 import Hero from 'components/atoms/Hero';
 import styled from 'styled-components';
+
 
 const StyledWrapper = styled.div`
   @media (max-width: 768px) {
@@ -60,8 +61,11 @@ const StyledButtonWrapper = styled.div`
   margin: 30px 15px 0 15px;
 `;
 
-const HomeView = ({ castles, forgotens }) => (
-  <>
+class HomeView extends Component {
+  render(){
+   const { castles, forgotens } = this.props;
+    return(
+<> 
     <Navigation />
     <Hero />
     <StyledWrapper>
@@ -70,7 +74,7 @@ const HomeView = ({ castles, forgotens }) => (
           <HeaderListFrontCard>Zamki</HeaderListFrontCard>
           <ListShortCard pageType="castles">
             {castles.map(({ url, name }) => (
-              <FrontCard url={url} name={name}></FrontCard>
+              <FrontCard key ={name} url={url} name={name}></FrontCard>
             ))}
           </ListShortCard>
           <StyledButtonWrapper>
@@ -83,12 +87,14 @@ const HomeView = ({ castles, forgotens }) => (
       <FooterListFrontCard></FooterListFrontCard>
     </StyledWrapper>
     <StyledWrapper>
+      
       {forgotens.length ? (
         <>
           <HeaderListFrontCard>Zapomniane</HeaderListFrontCard>
           <ListShortCard pageType="forgotens">
+          
             {forgotens.map(({ url, name }) => (
-              <FrontCard url={url} name={name} />
+              <FrontCard key={name} url={url} name={name} />
             ))}
           </ListShortCard>
           <StyledButtonWrapper>
@@ -98,11 +104,16 @@ const HomeView = ({ castles, forgotens }) => (
           </StyledButtonWrapper>
         </>
       ) : null}
-      <FooterListFrontCard></FooterListFrontCard>
+     
+      <FooterListFrontCard/>
     </StyledWrapper>
     <Footer />
   </>
-);
+    )
+  }
+};
+
+
 
 const mapStateToProps = (state) => {
   const { castles, forgotens } = state;
